@@ -1,0 +1,99 @@
+{
+  "Version": 1,
+  "Device": {
+    "Vid": 4489,
+    "Pid": 34960
+  },
+  "Bindings": {
+    "KEY1": {
+      "Type": "keyboard",
+      "Keys": [ "C" ],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KEY2": {
+      "Type": "launch",
+      "Keys": [],
+      "Text": "",
+      "Path": "C:\\Windows\\System32\\notepad.exe",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KEY3": {
+      "Type": "keyboard",
+      "Keys": [ "Ctrl+Z" ],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KEY4": {
+      "Type": "media",
+      "Keys": [],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KEY5": {
+      "Type": "media",
+      "Keys": [],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "mute",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KEY6": {
+      "Type": "keyboard",
+      "Keys": [ "F11" ],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KNOB_LEFT": {
+      "Type": "none",
+      "Keys": [],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_down",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KNOB_CLICK": {
+      "Type": "none",
+      "Keys": [],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "play_pause",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    },
+    "KNOB_RIGHT": {
+      "Type": "none",
+      "Keys": [],
+      "Text": "",
+      "Path": "",
+      "Arguments": "",
+      "Media": "volume_up",
+      "Mouse": "left_click",
+      "WheelDelta": 120
+    }
+  }
+}

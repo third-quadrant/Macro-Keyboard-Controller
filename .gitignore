@@ -1,0 +1,12 @@
+# Build output
+bin/
+obj/
+dist/
+.vs/
+*.user
+
+# Local diagnostic artifacts (decompiled third-party source must not be redistributed)
+analysis/src/
+analysis/rea/*.json
+tools/phase0/*.exe
+tools/phase0/logs/*.log

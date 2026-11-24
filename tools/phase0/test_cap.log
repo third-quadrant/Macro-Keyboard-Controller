@@ -1,0 +1,12 @@
+# READ-ONLY capture started 2026-11-23T23:27:52.6303733+09:00
+# duration=3s  collections=5
+# mi_00  \\?\hid#vid_1189&pid_8890&mi_00#7&a182129&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd  In=9 Out=2 Feat=0
+# OPEN FAIL mi_00 err=5
+# mi_01  \\?\hid#vid_1189&pid_8890&mi_01#7&917fb15&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}  In=65 Out=65 Feat=0
+# mi_02&col01  \\?\hid#vid_1189&pid_8890&mi_02&col01#7&1c481753&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd  In=12 Out=2 Feat=0
+# OPEN FAIL mi_02&col01 err=5
+# mi_02&col02  \\?\hid#vid_1189&pid_8890&mi_02&col02#7&1c481753&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}  In=3 Out=0 Feat=0
+# mi_03  \\?\hid#vid_1189&pid_8890&mi_03#7&2f783391&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}  In=5 Out=0 Feat=0
+# OPEN FAIL mi_03 err=5
+# capture running. 2 beeps = start, 1 beep = end.
+# capture stopped 2026-11-23T23:27:55.6504737+09:00

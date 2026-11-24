@@ -1,0 +1,52 @@
+﻿HidSharp 2.6.4 report-descriptor dump (reconstructed by Windows HID API / HidSharp)
+generated: 2026-11-23T23:33:14.4807016+09:00
+collections: 1 1 1 1 1
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_02&col02#7&1c481753&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+VID/PID   : 1189/8890  MaxIn=3 MaxOut=0 MaxFeat=0
+UseReportIDs=True
+  DeviceItem collection=Application usages=000C:0001
+  REPORT type=Input RID=2 length=3 bytes
+    off=   0 bits=  16 elemBits= 1 count=16 flags=Constant, Variable usage= min=0 max=1
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_03#7&2f783391&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+VID/PID   : 1189/8890  MaxIn=5 MaxOut=0 MaxFeat=0
+UseReportIDs=False
+  DeviceItem collection=Application usages=0001:0002
+  REPORT type=Input RID=0 length=5 bytes
+    off=   0 bits=   3 elemBits= 1 count= 3 flags=Variable usage=0009:0001,0009:0002,0009:0003 min=0 max=1
+    off=   3 bits=   5 elemBits= 1 count= 5 flags=Constant, Variable usage= min=0 max=1
+    off=   8 bits=   8 elemBits= 8 count= 1 flags=Variable, Relative usage=0001:0030 min=-127 max=127
+    off=  16 bits=   8 elemBits= 8 count= 1 flags=Variable, Relative usage=0001:0031 min=-127 max=127
+    off=  24 bits=   8 elemBits= 8 count= 1 flags=Variable, Relative usage=0001:0038 min=-127 max=127
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_00#7&a182129&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+VID/PID   : 1189/8890  MaxIn=9 MaxOut=2 MaxFeat=0
+UseReportIDs=True
+  DeviceItem collection=Application usages=0001:0006
+  REPORT type=Input RID=1 length=9 bytes
+    off=   0 bits=   8 elemBits= 1 count= 8 flags=Variable usage=0007:00E0,0007:00E1,0007:00E2,0007:00E3,0007:00E4,0007:00E5,0007:00E6,0007:00E7 min=0 max=1
+    off=   8 bits=  56 elemBits= 1 count=56 flags=Constant, Variable usage= min=0 max=1
+  REPORT type=Output RID=1 length=2 bytes
+    off=   0 bits=   3 elemBits= 1 count= 3 flags=Variable usage=0008:0001,0008:0002,0008:0003 min=0 max=1
+    off=   3 bits=   5 elemBits= 1 count= 5 flags=Constant, Variable usage= min=0 max=1
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_02&col01#7&1c481753&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+VID/PID   : 1189/8890  MaxIn=12 MaxOut=2 MaxFeat=0
+UseReportIDs=True
+  DeviceItem collection=Application usages=0001:0006
+  REPORT type=Input RID=1 length=12 bytes
+    off=   0 bits=   8 elemBits= 1 count= 8 flags=Variable usage=0007:00E0,0007:00E1,0007:00E2,0007:00E3,0007:00E4,0007:00E5,0007:00E6,0007:00E7 min=0 max=1
+    off=   8 bits=  80 elemBits= 1 count=80 flags=Constant, Variable usage= min=0 max=1
+  REPORT type=Output RID=1 length=2 bytes
+    off=   0 bits=   5 elemBits= 1 count= 5 flags=Variable usage=0008:0001,0008:0002,0008:0003,0008:0004,0008:0005 min=0 max=1
+    off=   5 bits=   3 elemBits= 1 count= 3 flags=Constant, Variable usage= min=0 max=1
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_01#7&917fb15&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+VID/PID   : 1189/8890  MaxIn=65 MaxOut=65 MaxFeat=0
+UseReportIDs=True
+  DeviceItem collection=Application usages=FF00:0001
+  REPORT type=Input RID=3 length=65 bytes
+    off=   0 bits= 512 elemBits= 8 count=64 flags=Variable, Relative usage=FF00:0002 min=0 max=-256
+  REPORT type=Output RID=3 length=65 bytes
+    off=   0 bits= 512 elemBits= 8 count=64 flags=Variable, Relative usage=FF00:0002 min=0 max=-256

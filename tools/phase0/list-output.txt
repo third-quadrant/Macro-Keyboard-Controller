@@ -1,0 +1,49 @@
+READ-ONLY probe (no output/feature reports are sent)
+OS: Microsoft Windows NT 6.2.9200.0  CLR: 4.0.30319.42000
+
+Target collections: 5
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_00#7&a182129&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+TAG       : mi_00#7&a
+VID/PID   : 1189/8890  bcdDevice=0000
+MANUF     : 
+PRODUCT   : 
+SERIAL    : 
+CAPS      : UsagePage=0001 Usage=0006 In=9 Out=2 Feature=0 LinkColl=1
+DESCRIPTOR: <unavailable>
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_01#7&917fb15&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+TAG       : mi_01#7&9
+VID/PID   : 1189/8890  bcdDevice=0000
+MANUF     : 
+PRODUCT   : 
+SERIAL    : 
+CAPS      : UsagePage=FF00 Usage=0001 In=65 Out=65 Feature=0 LinkColl=1
+DESCRIPTOR: <unavailable>
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_02&col01#7&1c481753&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\kbd
+TAG       : mi_02&col&col01#7
+VID/PID   : 1189/8890  bcdDevice=0000
+MANUF     : 
+PRODUCT   : 
+SERIAL    : 
+CAPS      : UsagePage=0001 Usage=0006 In=12 Out=2 Feature=0 LinkColl=1
+DESCRIPTOR: <unavailable>
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_02&col02#7&1c481753&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}
+TAG       : mi_02&col&col02#7
+VID/PID   : 1189/8890  bcdDevice=0000
+MANUF     : 
+PRODUCT   : 
+SERIAL    : 
+CAPS      : UsagePage=000C Usage=0001 In=3 Out=0 Feature=0 LinkColl=1
+DESCRIPTOR: <unavailable>
+================================================================
+PATH      : \\?\hid#vid_1189&pid_8890&mi_03#7&2f783391&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+TAG       : mi_03#7&2
+VID/PID   : 1189/8890  bcdDevice=0000
+MANUF     : 
+PRODUCT   : 
+SERIAL    : 
+CAPS      : UsagePage=0001 Usage=0002 In=5 Out=0 Feature=0 LinkColl=2
+DESCRIPTOR: <unavailable>

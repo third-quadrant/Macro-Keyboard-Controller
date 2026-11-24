@@ -1,0 +1,5 @@
+mi_00  READ OPEN FAIL err=5
+mi_01  READ OPEN OK   (In=65 Out=65 Feat=0)
+mi_02&col01  READ OPEN FAIL err=5
+mi_02&col02  READ OPEN OK   (In=3 Out=0 Feat=0)
+mi_03  READ OPEN FAIL err=5

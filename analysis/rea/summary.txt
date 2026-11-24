@@ -1,0 +1,146 @@
+ASSEMBLY: MINI KeyBoard 1.0.0.0
+TYPES: 30  METHODS: 295  FIELDS: 331  CALLEDGES: 3371
+USER STRINGS: 388
+
+== TYPES ==
+<Module>                                 methods=0 fields=0
+HID.report                               methods=1 fields=2
+HID.Hid                                  methods=36 fields=14
+HID.SP_DEVICE_INTERFACE_DATA             methods=0 fields=4
+HID.SP_DEVICE_INTERFACE_DETAIL_DATA      methods=0 fields=2
+HID.SP_DEVINFO_DATA                      methods=1 fields=4
+HID.DIGCF                                methods=0 fields=6
+HID.HIDD_ATTRIBUTES                      methods=0 fields=4
+HID.HIDP_CAPS                            methods=0 fields=15
+HID.DESIREDACCESS                        methods=0 fields=4
+HID.CREATIONDISPOSITION                  methods=0 fields=5
+HID.FLAGSANDATTRIBUTES                   methods=0 fields=11
+HID.DEV_BROADCAST_HDR                    methods=0 fields=3
+HID.DEV_BROADCAST_DEVICEINTERFACE        methods=0 fields=5
+HIDTester.AutoSizeFormClass              methods=5 fields=2
+HIDTester.FormMain                       methods=50 fields=48
+HIDTester.HidLib                         methods=5 fields=3
+HIDTester.LayerFun                       methods=6 fields=7
+HIDTester.LEDkey                         methods=8 fields=4
+HIDTester.MouseKey                       methods=16 fields=12
+HIDTester.Program                        methods=1 fields=0
+HIDTester.BasicKeys                      methods=103 fields=100
+HIDTester.FunKey                         methods=42 fields=37
+HIDTester.MULKey                         methods=10 fields=7
+HIDTester.Properties.Resources           methods=4 fields=2
+HIDTester.Properties.Settings            methods=4 fields=1
+HID_RETURN                               methods=0 fields=7
+DevBroadcastDeviceInterfaceBuffer        methods=1 fields=3
+controlRect                              methods=0 fields=4
+KeyParam                                 methods=2 fields=15
+
+== PINVOKE (16) ==
+HidD_GetHidGuid                          hid.dll                HidD_GetHidGuid
+SetupDiGetClassDevs                      setupapi.dll           SetupDiGetClassDevs
+SetupDiDestroyDeviceInfoList             setupapi.dll           SetupDiDestroyDeviceInfoList
+SetupDiEnumDeviceInterfaces              setupapi.dll           SetupDiEnumDeviceInterfaces
+SetupDiGetDeviceInterfaceDetail          setupapi.dll           SetupDiGetDeviceInterfaceDetail
+HidD_GetAttributes                       hid.dll                HidD_GetAttributes
+HidD_GetSerialNumberString               hid.dll                HidD_GetSerialNumberString
+HidD_GetPreparsedData                    hid.dll                HidD_GetPreparsedData
+HidD_FreePreparsedData                   hid.dll                HidD_FreePreparsedData
+HidP_GetCaps                             hid.dll                HidP_GetCaps
+CreateFile                               kernel32.dll           CreateFile
+CloseHandle                              kernel32.dll           CloseHandle
+ReadFile                                 Kernel32.dll           ReadFile
+WriteFile                                Kernel32.dll           WriteFile
+RegisterDeviceNotification               User32.dll             RegisterDeviceNotification
+UnregisterDeviceNotification             user32.dll             UnregisterDeviceNotification
+
+== METHODS of interest ==
+HID.Hid                        get_OutputReportLength() il=7
+HID.Hid                        get_InputReportLength() il=7
+HID.Hid                        .ctor() il=7
+HID.Hid                        GetDeviceSerialList(u2,u2,class:93 (System.Collections.Generic.List`1)<string>&) il=180
+HID.Hid                        OpenDevice(u2,u2) il=299
+HID.Hid                        get_Opened() il=7
+HID.Hid                        CloseDevice(native-int) il=34
+HID.Hid                        BeginAsyncRead() il=63
+HID.Hid                        ReadCompleted(class:85 (System.IAsyncResult)) il=110
+HID.Hid                        add_DataReceived(class:73 (System.EventHandler`1)<class:8 (HID.report)>) il=41
+HID.Hid                        remove_DataReceived(class:73 (System.EventHandler`1)<class:8 (HID.report)>) il=41
+HID.Hid                        OnDataReceived(class:8 (HID.report)) il=22
+HID.Hid                        add_DeviceRemoved(class:77 (System.EventHandler)) il=41
+HID.Hid                        remove_DeviceRemoved(class:77 (System.EventHandler)) il=41
+HID.Hid                        OnDeviceRemoved(class:65 (System.EventArgs)) il=29
+HID.Hid                        Write(class:8 (HID.report)) il=120
+HID.Hid                        GetHidDeviceList(class:93 (System.Collections.Generic.List`1)<string>&) il=251
+HID.Hid                        HidD_GetHidGuid(valuetype:101 (System.Guid)&) il=0
+HID.Hid                        SetupDiGetClassDevs(valuetype:101 (System.Guid)&,u4,native-int,valuetype:28 (HID.DIGCF)) il=0
+HID.Hid                        SetupDiDestroyDeviceInfoList(native-int) il=0
+HID.Hid                        SetupDiEnumDeviceInterfaces(native-int,native-int,valuetype:101 (System.Guid)&,u4,valuetype:16 (HID.SP_DEVICE_INTERFACE_DATA)&) il=0
+HID.Hid                        SetupDiGetDeviceInterfaceDetail(native-int,valuetype:16 (HID.SP_DEVICE_INTERFACE_DATA)&,native-int,i4,i4&,class:24 (HID.SP_DEVINFO_DATA)) il=0
+HID.Hid                        HidD_GetAttributes(native-int,valuetype:32 (HID.HIDD_ATTRIBUTES)&) il=0
+HID.Hid                        HidD_GetSerialNumberString(native-int,native-int,i4) il=0
+HID.Hid                        HidD_GetPreparsedData(native-int,native-int&) il=0
+HID.Hid                        HidD_FreePreparsedData(native-int) il=0
+HID.Hid                        HidP_GetCaps(native-int,valuetype:36 (HID.HIDP_CAPS)&) il=0
+HID.Hid                        CreateFile(string,u4,u4,u4,u4,u4,u4) il=0
+HID.Hid                        CloseHandle(native-int) il=0
+HID.Hid                        ReadFile(native-int,u1[],u4,u4&,native-int) il=0
+HID.Hid                        WriteFile(native-int,u1[],u4,u4&,native-int) il=0
+HID.Hid                        RegisterDeviceNotification(native-int,native-int,i4) il=0
+HID.Hid                        RegisterHIDNotification(native-int) il=48
+HID.Hid                        UnregisterDeviceNotification(native-int) il=0
+HID.Hid                        UnRegisterHIDNotification(native-int) il=7
+HID.Hid                        .cctor() il=12
+HIDTester.FormMain             .ctor() il=271
+HIDTester.FormMain             MenuList() il=222
+HIDTester.FormMain             LayerFunList() il=30
+HIDTester.FormMain             Btn_OnClick(object,class:181 (System.Windows.Forms.MouseEventArgs)) il=409
+HIDTester.FormMain             Show_Dowload_Text() il=20
+HIDTester.FormMain             Hide_Dowload_Text() il=12
+HIDTester.FormMain             AutoCheckUsb() il=461
+HIDTester.FormMain             myhid_DataReceived(object,class:8 (HID.report)) il=30
+HIDTester.FormMain             myhid_DeviceRemoved(object,class:65 (System.EventArgs)) il=47
+HIDTester.FormMain             aboutMenu_Click(object,class:65 (System.EventArgs)) il=12
+HIDTester.FormMain             Time_Display_Text() il=51
+HIDTester.FormMain             Timer1_Elapsed(object,class:185 (System.Timers.ElapsedEventArgs)) il=360
+HIDTester.FormMain             KeyBoardVersion_Check() il=217
+HIDTester.FormMain             Send_WriteFlash_Cmd() il=437
+HIDTester.FormMain             Send_WriteFlashLED_Cmd() il=437
+HIDTester.FormMain             Send_SwLayer() il=96
+HIDTester.FormMain             Download_Click(object,class:65 (System.EventArgs)) il=770
+HIDTester.FormMain             Key_Clear_Click(object,class:65 (System.EventArgs)) il=7
+HIDTester.FormMain             Key_Clear_Fun() il=31
+HIDTester.FormMain             Clear_Key_Char() il=38
+HIDTester.FormMain             Set_Key_Init() il=329
+HIDTester.FormMain             KEY_Colour_Init() il=494
+HIDTester.FormMain             KEY1_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY2_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY3_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY4_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY5_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY6_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY7_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY8_Click(object,class:65 (System.EventArgs)) il=65
+HIDTester.FormMain             KEY9_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             KEY10_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             KEY11_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             KEY12_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K1_Left_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K1_Centre_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K1_Right_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K2_Left_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K2_Centre_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             K2_Right_Click(object,class:65 (System.EventArgs)) il=66
+HIDTester.FormMain             FormMain_Load(object,class:65 (System.EventArgs)) il=13
+HIDTester.FormMain             MainPage_SizeChanged(object,class:65 (System.EventArgs)) il=13
+HIDTester.FormMain             Lanuage_Set_ZH() il=27
+HIDTester.FormMain             Lanuage_Set_EN() il=27
+HIDTester.FormMain             ApplyResource() il=108
+HIDTester.FormMain             splitContainer1_Panel2_Paint(object,class:193 (System.Windows.Forms.PaintEventArgs)) il=1
+HIDTester.FormMain             SetFunText_TextChanged(object,class:65 (System.EventArgs)) il=1
+HIDTester.FormMain             splitContainer1_Panel1_Paint(object,class:193 (System.Windows.Forms.PaintEventArgs)) il=1
+HIDTester.FormMain             Dispose(bool) il=30
+HIDTester.FormMain             InitializeComponent() il=3268
+HIDTester.HidLib               Get_Dev_Sta() il=7
+HIDTester.HidLib               Connect_Device() il=164
+HIDTester.HidLib               Check_Disconnect() il=35
+HIDTester.HidLib               WriteDevice(u1,u1[]) il=130
+HIDTester.HidLib               .ctor() il=18
