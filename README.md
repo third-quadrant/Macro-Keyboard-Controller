@@ -72,3 +72,7 @@ Per-key LED feedback uses uncommitted (volatile) writes, so it does not touch fl
 - `MVP_IMPLEMENTATION_REPORT.md` — implementation and verification report
 - `docs/analysis/mini-keyboard-hid-protocol.md` — reverse-engineered vendor protocol notes
 - `PHASE0_*`, `PHASE1_*`, `PHASE2_*` — device, input, and install-safety analysis
+
+## License
+
+MIT — see `LICENSE`.

@@ -11,6 +11,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <Version>0.1.0</Version>
+    <Authors>third_quadrant</Authors>
+    <Product>Fireworm</Product>
+    <Description>Macro keyboard controller for the MINI KeyBoard</Description>
   </PropertyGroup>
 
   <ItemGroup>
