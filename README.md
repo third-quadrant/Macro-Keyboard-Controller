@@ -1,4 +1,4 @@
-# Fireworm
+# Macro Keyboard Controller (enhanced)
 
 An independent Windows controller for the **MINI KeyBoard** macro pad (6 keys + knob, VID `1189` / PID `8890`). It replaces the vendor application: no vendor EXE, DLL, or driver is needed at runtime.
 
