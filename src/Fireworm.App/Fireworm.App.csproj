@@ -10,8 +10,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>third_quadrant</Authors>
     <Product>Fireworm</Product>
     <Description>Macro keyboard controller for the MINI KeyBoard</Description>
@@ -19,6 +20,9 @@
 
   <ItemGroup>
     <Resource Include="Assets\app.ico" />
+    <!-- Keep WPF type names unambiguous; WinForms is only used for the tray icon. -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
   </ItemGroup>
 
 </Project>

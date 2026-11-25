@@ -11,6 +11,8 @@ The UI is in Korean.
 - Applies changes immediately — no save button, no per-key "test" step.
 - Picks programs from the installed Start-menu list instead of typing paths.
 - Lights only the pressed key's LED, then turns it off after one second.
+- Closing the window keeps it running in the notification area, so the mapped keys keep working. A second launch just reopens the existing window.
+- Optional auto-start at Windows sign-in (starts hidden in the notification area).
 - Includes a wizard for rewriting the device's own key triggers, with a behaviour-level backup and restore path.
 
 ## How identification works
@@ -63,7 +65,7 @@ Per-key LED feedback uses uncommitted (volatile) writes, so it does not touch fl
 
 - F13–F18 still reach the foreground application; Raw Input only observes.
 - The knob's original volume/mute behaviour cannot be removed with the known protocol, so knob actions can double up.
-- No profiles, layers, macros/sequences, auto-start, or installer yet.
+- No profiles, layers, macros/sequences, or installer yet.
 - Mouse actions are implemented but not exercised in automated tests.
 - Hot-plug handling is implemented but not verified on hardware.
 

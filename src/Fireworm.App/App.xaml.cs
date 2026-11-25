@@ -12,6 +12,8 @@ namespace Fireworm.App;
 
 public partial class App : Application
 {
+    private Mutex? _instanceMutex;
+
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
@@ -53,7 +55,16 @@ public partial class App : Application
             return;
         }
 
-        var window = new MainWindow();
+        // One instance only: two would both receive Raw Input and run every action twice.
+        _instanceMutex = new Mutex(true, @"Local\Fireworm.SingleInstance", out var isFirst);
+        if (!isFirst)
+        {
+            AppMessages.PostMessage((IntPtr)AppMessages.HwndBroadcast, AppMessages.ShowWindow, IntPtr.Zero, IntPtr.Zero);
+            Shutdown(0);
+            return;
+        }
+
+        var window = new MainWindow(args.Any(a => a.Equals("--background", StringComparison.OrdinalIgnoreCase)));
         MainWindow = window;
         window.Show();
     }

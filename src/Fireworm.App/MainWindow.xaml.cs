@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using Fireworm.Core.Input;
 using Fireworm.Core.Models;
 using Fireworm.Core.Settings;
 using Microsoft.Win32;
+using WinForms = System.Windows.Forms;
 
 namespace Fireworm.App;
 
@@ -33,8 +35,17 @@ public partial class MainWindow : Window
     private DeviceTriggerWindow? _wizard;
     private bool _loadingEditor;
 
-    public MainWindow()
+    private const string RunKeyPath = @"Software\Microsoft\Windows\CurrentVersion\Run";
+    private const string RunValueName = "Fireworm";
+    private readonly bool _startHidden;
+    private WinForms.NotifyIcon? _tray;
+    private bool _exiting;
+    private bool _trayHintShown;
+    private bool _syncingAutoStart;
+
+    public MainWindow(bool startHidden = false)
     {
+        _startHidden = startHidden;
         InitializeComponent();
 
         _settings = _store.Load();
@@ -72,6 +83,7 @@ public partial class MainWindow : Window
 
         Loaded += MainWindow_Loaded;
         Closed += MainWindow_Closed;
+        Closing += MainWindow_Closing;
 
         SourceInitialized += (_, _) => DarkTitleBar.Apply(this);
     }
@@ -100,12 +112,123 @@ public partial class MainWindow : Window
             Log(_store.LastWarning);
 
         LoadInstalledPrograms();
+        CreateTrayIcon();
+
+        _syncingAutoStart = true;
+        AutoStartCheck.IsChecked = IsAutoStartEnabled();
+        _syncingAutoStart = false;
+
+        if (_startHidden) Hide();
+    }
+
+    private void MainWindow_Closing(object? sender, CancelEventArgs e)
+    {
+        if (_exiting) return;
+
+        // Closing the window only hides it: the mapped keys must keep working.
+        e.Cancel = true;
+        Hide();
+
+        if (!_trayHintShown && _tray != null)
+        {
+            _trayHintShown = true;
+            _tray.ShowBalloonTip(4000, "백그라운드에서 실행 중",
+                "창을 닫아도 키 매핑은 계속 동작합니다. 종료하려면 트레이 아이콘을 우클릭하세요.",
+                WinForms.ToolTipIcon.Info);
+        }
+    }
+
+    private void CreateTrayIcon()
+    {
+        var menu = new WinForms.ContextMenuStrip();
+        menu.Items.Add("열기", null, (_, _) => ShowFromTray());
+        menu.Items.Add(new WinForms.ToolStripSeparator());
+        menu.Items.Add("종료", null, (_, _) => ExitApplication());
+
+        _tray = new WinForms.NotifyIcon
+        {
+            Icon = LoadTrayIcon(),
+            Text = "매크로 키보드 컨트롤러",
+            Visible = true,
+            ContextMenuStrip = menu,
+        };
+        _tray.DoubleClick += (_, _) => ShowFromTray();
+    }
+
+    private static System.Drawing.Icon LoadTrayIcon()
+    {
+        try
+        {
+            var path = Environment.ProcessPath;
+            if (!string.IsNullOrEmpty(path))
+            {
+                var icon = System.Drawing.Icon.ExtractAssociatedIcon(path);
+                if (icon != null) return icon;
+            }
+        }
+        catch
+        {
+            // Fall back to the stock icon; the tray is not worth failing over.
+        }
+
+        return System.Drawing.SystemIcons.Application;
+    }
+
+    private void ShowFromTray()
+    {
+        Show();
+        if (WindowState == WindowState.Minimized) WindowState = WindowState.Normal;
+        Activate();
+    }
+
+    private void ExitApplication()
+    {
+        _exiting = true;
+        _tray?.Dispose();
+        _tray = null;
+        Close();
+    }
+
+    private static bool IsAutoStartEnabled()
+    {
+        using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath);
+        return key?.GetValue(RunValueName) is string;
+    }
+
+    private void AutoStart_Changed(object sender, RoutedEventArgs e)
+    {
+        if (_syncingAutoStart) return;
+
+        try
+        {
+            using var key = Registry.CurrentUser.CreateSubKey(RunKeyPath, true);
+            if (AutoStartCheck.IsChecked == true)
+            {
+                var path = Environment.ProcessPath;
+                if (string.IsNullOrEmpty(path)) return;
+                key.SetValue(RunValueName, $"\"{path}\" --background");
+            }
+            else
+            {
+                key.DeleteValue(RunValueName, false);
+            }
+
+            Log(AutoStartCheck.IsChecked == true
+                ? "Windows 시작 시 자동 실행을 켰습니다."
+                : "Windows 시작 시 자동 실행을 껐습니다.");
+        }
+        catch (Exception ex)
+        {
+            Log("자동 실행 설정을 변경하지 못했습니다: " + ex.Message);
+        }
     }
 
     private void MainWindow_Closed(object? sender, EventArgs e)
     {
         _pollTimer?.Dispose();
         _led.Dispose();
+        _tray?.Dispose();
+        _tray = null;
         _raw.Unregister();
         _raw.Dispose();
         if (_source != null)
@@ -116,6 +239,12 @@ public partial class MainWindow : Window
     {
         if (msg == 0x00FF) // WM_INPUT
             _raw.ProcessMessage(lParam);
+        else if (msg == AppMessages.ShowWindow)
+        {
+            // A second launch just brings this instance forward.
+            ShowFromTray();
+            handled = true;
+        }
         return IntPtr.Zero;
     }
 
